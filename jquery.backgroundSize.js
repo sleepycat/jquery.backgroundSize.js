@@ -88,7 +88,9 @@ $.cssHooks.backgroundSize = {
 			// This is the part where we mess with the existing DOM
 			// to make sure that the background image is correctly zIndexed
 			$.css( elem, "zIndex" ) == "auto" && ( elem.style.zIndex = 0 );
-			$.css( elem, "position" ) == "static" && ( elem.style.position = "relative" );
+                        if(elem.tagName !== 'BODY'){
+                          $.css( elem, "position" ) == "static" && ( elem.style.position = "relative" );
+                        }
 
 			$.refreshBackgroundImage( elem );
 
